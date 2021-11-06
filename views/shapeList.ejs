@@ -1,0 +1,24 @@
+<%- include('header', {title: `Shape List`}); -%>
+
+<div class="vh40-section d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>List of Shapes</h3>
+        <div class="list-group">
+          <% const uniqueShape = []; sightings.forEach((element) => {
+          if(!uniqueShape.includes(element.shape)){ %>
+          <a
+            class="list-group-item list-group-item-light list-group-item-action"
+            href="/shapes/<%= element.shape %>"
+            ><%= element.shape %></a
+          >
+
+          <% } }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>

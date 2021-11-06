@@ -1,0 +1,22 @@
+<%- include('header', {title: `Sighting Details`}); -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card bg-light">
+        <div class="card-header">Sighting at <%= content.sightings[sightingIndex].city %>, <%= content.sightings[sightingIndex].state %></div>
+
+        <div class="card-body">
+          <% for(const [key,value] of Object.entries(content.sightings[sightingIndex])) { let capitaliseKey =
+          key[0].toUpperCase() + key.slice(1) %>
+          <h5 class="card-title"><%= capitaliseKey %></h1>
+          <p class="card-text"><%= value %></p>
+          <% } %>
+        </div>
+      </div>
+      <button class="btn btn-sm btn-light mt-4"><a href="/sighting/<%= sightingIndex %>/edit">Edit Sighting</a></button>
+    </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>

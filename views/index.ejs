@@ -1,0 +1,80 @@
+<%- include('header', {title: `UFO Sightings`}); -%>
+
+<div class="container">
+  <div class="row d-flex justify-content-around mt-3">
+    <div class="col-sm-4 text-center">
+      <form action="/" method="GET">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy" name="sortBy">
+          <option value="date_time">Date</option>
+          <option value="shape">Shape</option>
+          <option value="city">City</option>
+        </select>
+
+        <label for="sortOrder">Order:</label>
+        <select id="sortOrder" name="sortOrder">
+          <option value="asc">Ascending</option>
+          <option value="dsc">Descending</option>
+        </select>
+
+        <input class="btn btn-sm btn-secondary" type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <h3>List of UFO Sightings</h3>
+
+      <div class="table-responsive">
+        <table class="table table-sm table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Shape</th>
+              <th scope="col">City</th>
+              <th scope="col">Sighting</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% sightings.forEach((element) => { %>
+            <tr>
+              <td><%= element.date_time %></td>
+              <td><%= element.shape %></td>
+              <td><%= element.city %></td>
+              <td>
+                <form
+                  action="/sighting/<%= sightings.indexOf(element) %>"
+                  method="GET"
+                >
+                  <input
+                    class="btn btn-light btn-sm"
+                    type="submit"
+                    value="View"
+                  />
+                </form>
+              </td>
+              <td>
+                <form
+                  action="/sighting/<%= sightings.indexOf(element) %>/delete?_method=DELETE"
+                  method="POST"
+                >
+                  <input
+                    class="btn btn-light btn-sm"
+                    type="submit"
+                    value="Delete"
+                  />
+                </form>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <%- include('footer'); -%>
+</div>

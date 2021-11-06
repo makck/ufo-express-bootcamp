@@ -1,0 +1,12 @@
+body {
+  background-color: #e2ded0;
+  padding-top: 65px;
+}
+
+td {
+  font-size: small;
+}
+
+.vh40-section {
+  height: 40vh;
+}

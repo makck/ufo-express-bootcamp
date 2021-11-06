@@ -1,0 +1,71 @@
+<%- include('header', {title: `New Sighting`}); -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="/sighting" method="POST">
+        <div class="form-group">
+          <label for="text">Text:</label><br />
+          <input class="form-control" type="text" id="text" name="text" /><br />
+
+          <label for="date_time">Date and Time:</label><br />
+          <input
+            class="form-control"
+            type="text"
+            id="date_time"
+            name="date_time"
+          /><br />
+
+          <label for="city">City:</label><br />
+          <input class="form-control" type="text" id="city" name="city" /><br />
+
+          <label for="state">State:</label><br />
+          <input
+            class="form-control"
+            type="text"
+            id="state"
+            name="state"
+          /><br />
+
+          <label for="shape">Shape:</label><br />
+          <input
+            class="form-control"
+            type="text"
+            id="shape"
+            name="shape"
+          /><br />
+
+          <label for="duration">Duration:</label><br />
+          <input
+            class="form-control"
+            type="text"
+            id="duration"
+            name="duration"
+          /><br />
+
+          <label for="summary">Summary:</label><br />
+          <input
+            class="form-control"
+            type="text"
+            id="summary"
+            name="summary"
+          /><br />
+
+          <label for="createdTime">Sighting Report Create Time:</label><br />
+          <input
+            class="form-control"
+            type="text"
+            id="createdTime"
+            name="createdTime"
+            value="<%- Date(); %>"
+            readonly
+          /><br />
+
+          <input class="btn btn-secondary" type="submit" value="Submit" /><br />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>
